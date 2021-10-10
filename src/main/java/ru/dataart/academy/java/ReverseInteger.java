@@ -10,8 +10,25 @@ public class ReverseInteger {
      * -2,147,483,648 -> exception, error message
      */
 
-    public int reverse(int inputNumber) {
+    public int reverse(int inputNumber) throws Exception {
         //Task implementation
-        return 0;
+//        boolean isNegative = false;
+//        if (inputNumber < 0) {
+//            isNegative = true;
+//        }
+
+        int input = inputNumber;
+        long reversedNumber = 0;
+        while (inputNumber != 0) {
+            reversedNumber *= 10;
+            reversedNumber += inputNumber % 10;
+            inputNumber /= 10;
+        }
+        if (reversedNumber > Integer.MAX_VALUE) {
+            throw new Exception(input + " is greater than a maximum int value");
+        } else if (reversedNumber < Integer.MIN_VALUE) {
+            throw new Exception(input    + " is smaller than a minimum int value");
+        }
+        return (int) reversedNumber;
     }
 }

@@ -10,6 +10,10 @@ public class Main {
         LongestSubstring longestSubstring = new LongestSubstring();
         System.out.println("Longest substring length: " + longestSubstring.getLengthOfLongestSubstring("aasdfgt"));
         ReverseInteger reverseInteger = new ReverseInteger();
-        System.out.println("Reverse integer works: " + reverseInteger.reverse(-456));
+        try {
+            System.out.println("Reverse integer works: " + reverseInteger.reverse(-456));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
