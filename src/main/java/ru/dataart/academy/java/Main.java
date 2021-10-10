@@ -13,7 +13,7 @@ public class Main {
         try {
             System.out.println("Reverse integer works: " + reverseInteger.reverse(-456));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
