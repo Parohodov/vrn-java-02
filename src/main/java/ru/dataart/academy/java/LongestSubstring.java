@@ -18,7 +18,7 @@ public class LongestSubstring {
             String currChar = "";
 
             for (int e = s; e < checkString.length(); e++) {
-                currChar = checkString.substring(e,e+1);
+                currChar = checkString.substring(e, e+1);
                 if (subString.contains(currChar)) {
                     break;
                 }

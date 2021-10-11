@@ -12,23 +12,41 @@ public class ReverseInteger {
 
     public int reverse(int inputNumber) throws RuntimeException {
         //Task implementation
-//        boolean isNegative = false;
-//        if (inputNumber < 0) {
-//            isNegative = true;
-//        }
+
+        if (inputNumber > -10 && inputNumber < 10) {
+            return inputNumber;
+        }
 
         int input = inputNumber;
         long reversedNumber = 0;
-        while (inputNumber != 0) {
+
+        // Eating a number from the end
+        while (input != 0) {
             reversedNumber *= 10;
-            reversedNumber += inputNumber % 10;
-            inputNumber /= 10;
+            reversedNumber += input % 10;
+            input /= 10;
         }
+
         if (reversedNumber > Integer.MAX_VALUE) {
             throw new RuntimeException(input + " is greater than a maximum int value");
         } else if (reversedNumber < Integer.MIN_VALUE) {
-            throw new RuntimeException(input    + " is smaller than a minimum int value");
+            throw new RuntimeException(input + " is smaller than a minimum int value");
         }
         return (int) reversedNumber;
+
+//        boolean numIsNegative = false;
+//        int number = inputNumber;
+//        if (number < 0) {
+//            number = Math.abs(number);
+//            numIsNegative = true;
+//        }
+//
+//        StringBuilder sb = new StringBuilder(String.valueOf(number)).reverse();
+//        if (numIsNegative) {
+//            sb.insert(0, "-");
+//        }
+//
+//        return Integer.valueOf(sb.toString());
+
     }
 }
