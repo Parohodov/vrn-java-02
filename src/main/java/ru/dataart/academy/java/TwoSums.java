@@ -12,6 +12,27 @@ public class TwoSums {
      */
     public int[] getTwoSum(int[] nums, int target) {
         // Task implementation
-        return new int[]{0, 1};
+
+        int first = 0;
+        int second = 0;
+        boolean numsExist = false;
+
+        label:
+        for (int i = 0; i < nums.length; i++) {
+            first = nums[i];
+
+            for (int j = i + 1; j < nums.length; j++) {
+                second = nums[j];
+                if (first + second == target) {
+                    numsExist = true;
+                    break label;
+                }
+            }
+        }
+        if (numsExist) {
+            return new int[]{first, second};
+        } else {
+            return new int[]{};
+        }
     }
 }
