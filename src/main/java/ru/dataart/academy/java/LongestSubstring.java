@@ -10,6 +10,22 @@ public class LongestSubstring {
 
     public int getLengthOfLongestSubstring(String checkString) {
         //Task implementation
-        return 0;
+        int subLength = 0;
+
+        for (int s = 0; s < checkString.length(); s++) {
+            StringBuilder sb = new StringBuilder();
+            String subString = "";
+
+            int e = s;
+            for (; e < checkString.length(); e++) {
+                String currChar = checkString.substring(e,e+1);
+                if (subString.contains(currChar)) {
+                    break;
+                }
+                subString = sb.append(checkString.charAt(e)).toString();
+            }
+            subLength = Math.max(subLength,sb.length());
+        }
+        return subLength;
     }
 }
