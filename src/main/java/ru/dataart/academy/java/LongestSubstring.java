@@ -17,6 +17,7 @@ public class LongestSubstring {
             String subString = "";
             String currChar = "";
 
+            // Checking all substrings starting with 0 index
             for (int e = s; e < checkString.length(); e++) {
                 currChar = checkString.substring(e, e+1);
                 if (subString.contains(currChar)) {
@@ -25,6 +26,9 @@ public class LongestSubstring {
                 subString = sb.append(checkString.charAt(e)).toString();
             }
             subLength = Math.max(subLength,sb.length());
+
+            // If the substring meets repeating character than new unique substring starts at least after this character
+            // since it will have that second character within itself in next circle evaluations
             s += subString.indexOf(currChar);
         }
 

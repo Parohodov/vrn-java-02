@@ -23,26 +23,26 @@ public class TwoSums {
             return new int[]{};
         }
 
-        int first = 0;
-        int second = 0;
+        int first;
+        int second;
         boolean numsExist = false;
         int maxValue = nums[nums.length-1];
 
-        label:
         for (int i = 0; i < nums.length; i++) {
             first = nums[i];
 
             // There is no point to check if a current number meets the condition with any number from an array
             // if it doesn't with a maximum value (because array is sorted)
+            // That's how all numbers that can't have a pair in the array are skipped
             if (first < target - maxValue) {
                 continue;
             }
 
+            // Checking all remained sub arrays
             for (int j = i + 1; j < nums.length; j++) {
                 second = nums[j];
-                if (first + second == target) {
-                    numsExist = true;
-                    break label;
+                if (first + second == target) { // Condition
+                    return new int[]{first, second};
                 }
             }
 
@@ -51,10 +51,6 @@ public class TwoSums {
 //            maxValue = nums[length-1];
         }
 
-        if (numsExist) {
-            return new int[]{first, second};
-        } else {
-            return new int[]{};
-        }
+        return new int[]{};
     }
 }
